@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Built-By: Misato
+Build-Jdk: 1.7.0_45
+Created-By: Apache Maven 3.2.1
+Main-Class: com.york.api.utils.AppTest
+Archiver-Version: Plexus Archiver
+

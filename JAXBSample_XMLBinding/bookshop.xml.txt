@@ -1,0 +1,33 @@
+<bookshopA>
+    <test-data> 
+         <title>BookTitle</title> 
+         <book>BookName</book> 
+         <count>64018</count> 
+  	 <type>locality</type>
+  	 <type>political</type>
+         <test-data> 
+            <title>Book title1</title> 
+            <book>Book Name1</book> 
+            <count>5</count> 
+	    <type>locality1</type>
+  	    <type>political1</type>
+
+         </test-data> 
+         <test-data> 
+            <title>Book title2</title> 
+            <book>Book Name3</book> 
+            <count>58</count> 
+		<type>locality2</type>
+  		<type>political2</type>
+
+         </test-data> 
+         <test-data> 
+            <title>Book title3</title> 
+            <book>Book Name9</book> 
+            <count>4</count> 
+	  	 <type>locality3</type>
+  		 <type>political3</type>
+
+         </test-data> 
+    </test-data>
+</bookshopA>

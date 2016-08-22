@@ -1,0 +1,62 @@
+
+About AJXB:
+@XmlRootElement( name = "PlaceSearchResponse" )
+@XmlType(propOrder={"status", "result", "nextPageToken"})
+public class PlaceSearchResponse {
+	private String status;
+	private List<Result> result;
+	private String nextPageToken;
+......
+	@XmlElement( name = "next_page_token" )
+	public String getNextPageToken() {
+		return nextPageToken;
+	}
+
+
+
+
+@XmlAttribute(name="number")
+    public String getNumber() {
+        return number;
+    }
+
+
+@XmlTransient
+Annotate fields that we do not want to be included in XML or JSON output with @XMLTransient.
+
+@XmlTransient
+public Date getVersion() {
+  return version;
+}
+
+@XmlSeeAlso
+Use @XmlSeeAlso annotation when we want another Entity bean included in the XML output. In our example below, CompanyList bean refers to Company bean and the XML output should include XML generated from Company Entity too.
+@XmlRootElement(name = "List")
+@XmlSeeAlso(Company.class)
+public class CompanyList {
+ 
+  @XmlElement(name = "companyList")
+  public List<Company> getList() {
+    return list;
+  }
+...
+}
+
+
+Using JAX-RS Annotations with JAXB and JPA Annotations
+
+@GET
+@Produces("application/xml")
+@Path("xml/{firstName}")
+public Contact getXML(@PathParam("firstName") String firstName) {
+  Contact contact = contactService.findByFirstName(firstName);
+  return contact;
+}
+
+@GET
+@Produces("application/json")
+@Path("json/{firstName}")
+public Contact getJSON(@PathParam("firstName") String firstName) {
+  Contact contact = contactService.findByFirstName(firstName);
+  return contact;
+}

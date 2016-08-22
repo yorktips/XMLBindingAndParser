@@ -1,0 +1,55 @@
+http://www.tutorialspoint.com/java_xml/java_sax_parser.htm
+
+DOM/JDOM/DOM4J
+SAX
+XPATH
+JAXB
+
+
+
+(1) How many ways for XML in java:
+1. Dom Parser - Parses the document by loading the complete contents of the document and creating its complete hiearchical tree in memory.
+2. SAX Parser - Parses the document on event based triggers. Does not load the complete document into the memory.
+3. JDOM Parser - Parses the document in similar fashion to DOM parser but in more easier way.
+4. StAX Parser - Parses the document in similar fashion to SAX parser but in more efficient way.
+5. XPath Parser - Parses the XML based on expression and is used extensively in conjuction with XSLT.
+6. DOM4J Parser - A java library to parse XML, XPath and XSLT using Java Collections Framework , provides support for DOM, SAX and JAXP.
+7. JAXB(Java XML Binding)
+   marshall ->object to XML
+   unmarshall -> XML to ojbect
+   XSD through JAXB to class
+   XML through Eclipse to XSD 
+
+
+XPath(XPATH is only used for query XML, for modify XML/create XML, use DOM/JAXB);
+Expression  Description
+student     Select all nodes with the given name "nodename"
+/	    Selection starts from the root node
+//	    Selection starts from the current node that match the selection
+.	    Selects the current node
+..	    Selects the parent of the current node
+@	    Selects attributes
+
+class/student  Selects all student elements that are children of class
+//student      Selects all student elements no matter where they are in the document
+
+/class/student[1]         Selects the first student element that is the child of the class element.
+/class/student[last()]    Selects the last student element that is the child of the class element.
+/class/student[last()-1]  Selects the last but one student element that is the child of the class element.
+//student[@rollno='493']  Selects all the student elements that have an attribute named rollno with a value of '493'
+
+Node node10=document.selectSingleNode("/html/body[2]//a[@href]/@href");
+List<Node> nodes = document.selectNodes("/class/student[@rollno='493']" );
+
+String expression = "/class/student[@rollno='493']";	        
+NodeList nodeList = (NodeList) xPath.compile(expression).evaluate(doc, XPathConstants.NODESET);
+for (int i = 0; i < nodeList.getLength(); i++) {
+
+
+
+Small XML -> DOM,JDOM,DOM4J
+Large XML but not deep ->SAX
+Large deep XML -> XPATH (Read only, not node upate)
+Common -> DOM4J
+Object <-> XML (Marshall and UnMarshall) -> AJXB 
+
