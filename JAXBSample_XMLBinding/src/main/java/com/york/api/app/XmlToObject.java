@@ -32,8 +32,12 @@ public class XmlToObject {
 			
 	        Marshaller marshaller = jaxbContext.createMarshaller();
 	        marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-	        marshaller.marshal(que, System.out);
-
+	        
+	        StringWriter sw = new StringWriter();
+	        //marshaller.marshal(que, System.out);
+                marshaller.marshal(que,sw);
+                String xmlString = sw.toString();
+                System.out(xmlString);
 		} catch (JAXBException e) {
 			e.printStackTrace();
 		}
